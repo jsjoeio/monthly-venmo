@@ -1,6 +1,5 @@
 # TODOS
-# commit to Git in private repo
-# GitHub Action schedule, every 2 mins
+# add GitHub Actions workflow every 2 mins
 # Get actual people's user ids and store as environment variables
 # Run script on actual schedule (check PayPal receipts)
 import os
