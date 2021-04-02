@@ -8,7 +8,7 @@ on:
     # Run every 3 minutes
     # every month on the 7th at 4pm.
     # 0 16 7 * *
-    - cron: "*/20 * * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
 
 jobs:
