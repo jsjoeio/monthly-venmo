@@ -9,6 +9,7 @@ on:
     # every month on the 7th at 4pm.
     # 0 16 7 * *
     - cron: "*/20 * * * *"
+  workflow_dispatch:
 
 jobs:
   run:
