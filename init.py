@@ -23,7 +23,7 @@ venmo = Client(access_token=access_token)
 def request_money(name, id, amount, description):
   successfullyRequested = venmo.payment.request_money(amount, description, id)
   if successfullyRequested:
-    print("Successfully requested " + amount + " for " + description + " from " + name)
+    print("Successfully requested " + str(amount) + " for " + description + " from " + name)
   else:
     print("Payment request failed")
 
@@ -34,3 +34,5 @@ def get_user_by_username(name, username):
 
 id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
 print(id)
+
+# request_money("Jordan Mishlove", id, 1.99, "friendship fee")
