@@ -4,10 +4,10 @@
 name: Python application
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Run every 3 minutes
+    - cron: "*/3 * * * *"
 
 jobs:
   build:
