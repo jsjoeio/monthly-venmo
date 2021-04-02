@@ -1,11 +1,11 @@
-name: Experiment
+name: Test
 on:
   schedule:
     - cron: "*/5 * * * *"
 
 jobs:
   job1:
-    name: Debug
+    name: Debug2
     runs-on: ubuntu-latest
 
     steps:
