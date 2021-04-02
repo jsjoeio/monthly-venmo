@@ -33,3 +33,5 @@ jobs:
       - name: Run script
         run: |
           python init.py
+        env:
+          VENMO_ACCESS_TOKEN: ${{ secrets.VENMO_ACCESS_TOKEN }}
