@@ -13,10 +13,17 @@ if os.getenv('VENMO_ACCESS_TOKEN'):
     print('✅ Venmo access token is available in the environment.')
 else:
     print("❌ Can't find VENMO_ACCESS_TOKEN in environment.")
-    print("Exiting script. Please add and run again.")
+    print("   Exiting script. Please add and run again.")
     quit()
 
-# Get your access token. You will need to complete the 2FA process
+if os.getenv('TELEGRAM_BOT_TOKEN'):
+    print('✅ Telegram bot token is available in the environment.')
+else:
+    print("❌ Can't find TELEGRAM_BOT_TOKEN in environment.")
+    print("   Exiting script. Please add and run again.")
+    quit()
+
+bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 access_token = os.getenv('VENMO_ACCESS_TOKEN')
 venmo = Client(access_token=access_token)
 
