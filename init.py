@@ -1,6 +1,5 @@
 # TODOS
 # Add photo for Efron
-# Update CRON to run once a month
 
 from venmo_api import Client
 from dotenv import load_dotenv
