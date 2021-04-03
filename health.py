@@ -15,20 +15,20 @@ def main(now):
   if envVarsAreDefined:
     print(f'✅ Found all {numOfExpected} environment variables.\n')
   else:
-    print('❌ Failed to verify environment variables.')
+    print('❌ Failed to verify environment variables.\n')
 
   access_token, chat_id, bot_token = get_env_vars(env_vars)
 
   venmo = Venmo(access_token)
   telegram = Telegram(bot_token, chat_id)
 
-  print("🤑 Verifying Venmo client is working...\n")
+  print("🤑 Verifying Venmo client is working...")
   userId = venmo.get_user_id_by_username("Jordan-Mishlove")
 
   if userId:
-    print('✅ Venmo client is working as expected.')
+    print('✅ Venmo client is working as expected.\n')
   else:
-    print('❌ Failed to get userId using Venmo client.')
+    print('❌ Failed to get userId using Venmo client.\n')
 
   returnedUserId = bool(userId)
 
