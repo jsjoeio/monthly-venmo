@@ -5,10 +5,9 @@ name: Run Script
 
 on:
   schedule:
-    # Run every 3 minutes
-    # every month on the 7th at 4pm.
+    # Run every day at 12pm my time
     # 0 16 7 * *
-    - cron: "0 */2 * * *"
+    - cron: "0 19 * * *"
   workflow_dispatch:
 
 jobs:
