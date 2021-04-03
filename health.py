@@ -3,7 +3,7 @@ from utils import get_env, verify_env_vars, env_vars, get_env_vars, Telegram, Ve
 from dotenv import load_dotenv
 
 def main(now):
-  load_dotenv()  # take environment variables from .env.
+  load_dotenv()
   date = now.strftime("%B %d, %Y")
   time = now.strftime("%H:%M%p")
   print(f'🕘 Monthly health check running on {date} at {time}.\n')
@@ -13,7 +13,9 @@ def main(now):
   envVarsAreDefined = verify_env_vars(env_vars, numOfExpected)
 
   if envVarsAreDefined:
-    print(f'✅ Found all {numOfExpected} environment variables.')
+    print(f'✅ Found all {numOfExpected} environment variables.\n')
+  else:
+    print('❌ Failed to verify environment variables.')
 
   access_token, chat_id, bot_token = get_env_vars(env_vars)
 
@@ -21,7 +23,7 @@ def main(now):
   telegram = Telegram(bot_token, chat_id)
 
   print("🤑 Verifying Venmo client is working...\n")
-  userId = venmo.get_user_id_by_username("Joe-Previte")
+  userId = venmo.get_user_id_by_username("Jordan-Mishlove")
 
   if userId:
     print('✅ Venmo client is working as expected.')
@@ -31,25 +33,64 @@ def main(now):
   returnedUserId = bool(userId)
 
   if envVarsAreDefined and returnedUserId:
-    message = f"""
-      Hello old sport! 👋
+    print('✅ Everything looks good in the health check')
+    message = """Hello old sport! 👋
 
-      Checking in from your Monthly Venmo script.
+Checking in from your Monthly Venmo script.
 
-      According to my calculations, everything looks in order.
-      You money should be requested per usual this month.
+According to my calculations, everything looks in order.
+You money should be requested per usual this month.
 
-      Cheerio!
+Cheerio!
 
-      — Efron 🤵🏻‍♂️
+— Efron 🤵🏻‍♂️
     """
     telegram.send_message(message)
   elif envVarsAreDefined:
-    telegram.send_message("env var defined")
+    print('❌ Venmo client might not be working. 1/2 checks failed in health script.')
+    message = """Oh hello old sport...
+
+As you can tell by the hesitation in my voice (or rather writing...), I don't have great news.
+
+According to my calculations, the environment variables in your Monthly Venmo script are working, but the Venmo client isn't.
+
+If I were smarter, I would fix it myself, but you know, I'm just an assistant. That's beyond my paygrade.
+
+Good luck fixing it!
+
+— Efron 🤵🏻‍♂️
+    """
+    telegram.send_message(message)
   elif returnedUserId:
-    telegram.send_message("user id defined")
+    print('❌ Envrionment variables check did not pass. 1/2 checks failed in health script.')
+    message = """It's me again, old sport...
+
+As you can tell by the hesitation in my voice (or rather writing), I don't have great news.
+
+According to my calculations, the Venmo client in your Monthly Venmo script is working, but there is a problem with the environment variables.
+
+You know this stuff is beyond my level of expertise. I'll defer to you, sir.
+
+Good luck!
+
+— Efron 🤵🏻‍♂️
+    """
+    telegram.send_message(message)
   else:
-    telegram.send_message('oh no')
+    print('❌ Venmo client and environment variables did not pass. 2/2 checks failed in health script.')
+    message = """Oh dear...
+
+I thought the other day was bad, but this is worse.
+
+According to my calculations, the Venmo client and the environment variables are both failing in your Monthly Venmo script.
+
+I have no idea what could be wrong. I promise I didn't break it.
+
+You may want to go to GitHub and take a look.
+
+— Efron 🤵🏻‍♂️
+    """
+    telegram.send_message(message)
 
 # Grab current date and passing in when running function
 now = datetime.now()
