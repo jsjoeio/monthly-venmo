@@ -57,7 +57,11 @@ class Venmo:
 
     def get_user_id_by_username(self, username):
         user = self.client.user.get_user_by_username(username=username)
-        return user.id
+        if (user):
+            return user.id
+        else:
+            print("ERROR: user did not comeback. Check username.")
+            return None
 
     def request_money(self, name, id, amount, description):
         # Returns a boolean: true if successfully requested
