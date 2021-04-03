@@ -1,7 +1,9 @@
 # TODOS
-# add GitHub Actions workflow every 2 mins
+# Add Telegram notifications
+# Refactor os.getenv into array with loop
+# Add health-check GitHub run (runs once a week)
 # Get actual people's user ids and store as environment variables
-# Run script on actual schedule (check PayPal receipts)
+# Update CRON to run once a month
 import os
 
 from venmo_api import Client
@@ -37,20 +39,25 @@ access_token = os.getenv('VENMO_ACCESS_TOKEN')
 venmo = Client(access_token=access_token)
 telegram = get_notifier('telegram')
 
-def request_money(name, id, amount, description):
-  successfullyRequested = venmo.payment.request_money(amount, description, id)
-  if successfullyRequested:
-    print("Successfully requested " + str(amount) + " for " + description + " from " + name)
-  else:
-    print("Payment request failed")
-
 def get_user_by_username(name, username):
   user = venmo.user.get_user_by_username(username=username)
   print(name + "'s user id is " + user.id)
   return user.id
 
+def send_telegram_message(message):
+  telegram.notify(message=message, token=bot_token, chat_id=chat_id)
+
+def request_money(name, id, amount, description):
+  successfullyRequested = venmo.payment.request_money(amount, description, id)
+  if successfullyRequested:
+    print("Successfully requested " + str(amount) + " for " + description + " from " + name)
+    send_telegram_message("Hello Joe! Letting you know that I have successfully requested money from " + name)
+  else:
+    print("Payment request failed")
+    # TODO funny failure comment
+    # TODO look into formatting comments and adding emojis
+
 id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
 print(id)
 
 # request_money("Jordan Mishlove", id, 1.99, "friendship fee")
-telegram.notify(message='Hello Joe! This is Efron your Assistant. Stopping by to say hello. You alright, old sport?', token=bot_token, chat_id=chat_id)
