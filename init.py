@@ -7,13 +7,15 @@ from venmo_api import Client
 from dotenv import load_dotenv
 from notifiers import get_notifier
 
-from utils import get_env
+from utils import get_env, env_vars
 
 load_dotenv()  # take environment variables from .env.
 
-access_token = get_env("VENMO_ACCESS_TOKEN")
-chat_id = get_env("TELEGRAM_CHAT_ID")
-bot_token = get_env("TELEGRAM_BOT_TOKEN")
+actualVars = []
+for var in env_vars:
+  actualVars.append(get_env(var))
+
+access_token, chat_id, bot_token = actualVars
 
 venmo = Client(access_token=access_token)
 telegram = get_notifier('telegram')
