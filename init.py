@@ -1,6 +1,3 @@
-# TODOS
-# Add photo for Efron
-
 from venmo_api import Client
 from dotenv import load_dotenv
 from notifiers import get_notifier
