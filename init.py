@@ -1,41 +1,20 @@
 # TODOS
-# Add Telegram notifications
-# Refactor os.getenv into array with loop
 # Add health-check GitHub run (runs once a week)
 # Get actual people's user ids and store as environment variables
 # Update CRON to run once a month
-import os
 
 from venmo_api import Client
 from dotenv import load_dotenv
 from notifiers import get_notifier
 
+from utils import get_env
+
 load_dotenv()  # take environment variables from .env.
 
-if os.getenv('VENMO_ACCESS_TOKEN'):
-    print('✅ Venmo access token is available in the environment.')
-else:
-    print("❌ Can't find VENMO_ACCESS_TOKEN in environment.")
-    print("   Exiting script. Please add and run again.")
-    quit()
+access_token = get_env("VENMO_ACCESS_TOKEN")
+chat_id = get_env("TELEGRAM_CHAT_ID")
+bot_token = get_env("TELEGRAM_BOT_TOKEN")
 
-if os.getenv('TELEGRAM_BOT_TOKEN'):
-    print('✅ Telegram bot token is available in the environment.')
-else:
-    print("❌ Can't find TELEGRAM_BOT_TOKEN in environment.")
-    print("   Exiting script. Please add and run again.")
-    quit()
-
-if os.getenv('TELEGRAM_CHAT_ID'):
-    print('✅ Telegram chat id is available in the environment.')
-else:
-    print("❌ Can't find TELEGRAM_CHAT_ID in environment.")
-    print("   Exiting script. Please add and run again.")
-    quit()
-
-chat_id = os.getenv('TELEGRAM_CHAT_ID')
-bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
-access_token = os.getenv('VENMO_ACCESS_TOKEN')
 venmo = Client(access_token=access_token)
 telegram = get_notifier('telegram')
 
@@ -54,10 +33,19 @@ def request_money(name, id, amount, description):
     send_telegram_message("Hello Joe! Letting you know that I have successfully requested money from " + name)
   else:
     print("Payment request failed")
-    # TODO funny failure comment
-    # TODO look into formatting comments and adding emojis
+    message = "Sorry to bother you Mr. Previte, but I have unforunate news. I tried to request $" + amount + " from " + name + " but the payment failed."
+    send_telegram_message(message)
 
-id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
-print(id)
+
+def main():
+  """
+  The main function which initiates the script.
+  """
+  print("Hello world")
+
+
+main
+# id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
+# print(id)
 
 # request_money("Jordan Mishlove", id, 1.99, "friendship fee")
