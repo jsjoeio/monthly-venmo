@@ -6,6 +6,7 @@ import os
 
 from venmo_api import Client
 from dotenv import load_dotenv
+from notifiers import get_notifier
 
 load_dotenv()  # take environment variables from .env.
 
@@ -23,9 +24,18 @@ else:
     print("   Exiting script. Please add and run again.")
     quit()
 
+if os.getenv('TELEGRAM_CHAT_ID'):
+    print('✅ Telegram chat id is available in the environment.')
+else:
+    print("❌ Can't find TELEGRAM_CHAT_ID in environment.")
+    print("   Exiting script. Please add and run again.")
+    quit()
+
+chat_id = os.getenv('TELEGRAM_CHAT_ID')
 bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 access_token = os.getenv('VENMO_ACCESS_TOKEN')
 venmo = Client(access_token=access_token)
+telegram = get_notifier('telegram')
 
 def request_money(name, id, amount, description):
   successfullyRequested = venmo.payment.request_money(amount, description, id)
@@ -43,3 +53,4 @@ id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
 print(id)
 
 # request_money("Jordan Mishlove", id, 1.99, "friendship fee")
+telegram.notify(message='Hello Joe! This is Efron your Assistant. Stopping by to say hello. You alright, old sport?', token=bot_token, chat_id=chat_id)
