@@ -1,4 +1,6 @@
 import os
+from venmo_api import Client
+from notifiers import get_notifier
 
 def get_env(env):
   """
@@ -37,3 +39,35 @@ def verify_env_vars(vars, numOfExpected):
     # because if one doesn't exist, then get_env quits
     # but adding here for posterity
     return False
+
+def get_env_vars(vars):
+    """
+    Returns an array of the vars after getting them
+    """
+
+    allVars = []
+    for var in vars:
+        allVars.append(os.getenv(var))
+
+    return allVars
+
+class Venmo:
+    def __init__(self, access_token):
+        self.client = Client(access_token=access_token)
+
+    def get_user_id_by_username(self, username):
+        user = self.client.user.get_user_by_username(username=username)
+        return user.id
+
+    def request_money(self, name, id, amount, description):
+        # Returns a boolean: true if successfully requested
+        return self.client.payment.request_money(amount, description, id)
+
+class Telegram:
+    def __init__(self, bot_token, chat_id):
+        self.bot_token = bot_token
+        self.chat_id = chat_id
+        self.client = get_notifier('telegram')
+
+    def send_message(self, message):
+        self.client.notify(message=message, token=self.bot_token, chat_id=self.chat_id)

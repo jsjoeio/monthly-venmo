@@ -44,10 +44,12 @@ def main():
   The main function which initiates the script.
   """
   print("Hello world")
+  # get_user_by_username("Joe Previte", "Joe-Previte")
+  id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
+  print(id)
 
 
-main
-# id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
-# print(id)
+print("um hi")
+main()
 
 # request_money("Jordan Mishlove", id, 1.99, "friendship fee")
