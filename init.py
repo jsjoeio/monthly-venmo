@@ -1,55 +1,67 @@
 # TODOS
-# Add health-check GitHub run (runs once a week)
-# Get actual people's user ids and store as environment variables
+# Add photo for Efron
 # Update CRON to run once a month
 
 from venmo_api import Client
 from dotenv import load_dotenv
 from notifiers import get_notifier
+from datetime import datetime
 
-from utils import get_env, env_vars
+from utils import get_env, env_vars, get_month, Venmo, Telegram
 
-load_dotenv()  # take environment variables from .env.
-
-actualVars = []
-for var in env_vars:
-  actualVars.append(get_env(var))
-
-access_token, chat_id, bot_token = actualVars
-
-venmo = Client(access_token=access_token)
-telegram = get_notifier('telegram')
-
-def get_user_by_username(name, username):
-  user = venmo.user.get_user_by_username(username=username)
-  print(name + "'s user id is " + user.id)
-  return user.id
-
-def send_telegram_message(message):
-  telegram.notify(message=message, token=bot_token, chat_id=chat_id)
-
-def request_money(name, id, amount, description):
-  successfullyRequested = venmo.payment.request_money(amount, description, id)
-  if successfullyRequested:
-    print("Successfully requested " + str(amount) + " for " + description + " from " + name)
-    send_telegram_message("Hello Joe! Letting you know that I have successfully requested money from " + name)
-  else:
-    print("Payment request failed")
-    message = "Sorry to bother you Mr. Previte, but I have unforunate news. I tried to request $" + amount + " from " + name + " but the payment failed."
-    send_telegram_message(message)
-
-
-def main():
+def main(now):
   """
   The main function which initiates the script.
   """
-  print("Hello world")
-  # get_user_by_username("Joe Previte", "Joe-Previte")
-  id = get_user_by_username("Jordan Mishlove", "Jordan-Mishlove")
-  print(id)
 
+  load_dotenv()  # take environment variables from .env.
+  actualVars = []
+  for var in env_vars:
+    actualVars.append(get_env(var))
 
-print("um hi")
-main()
+  access_token, chat_id, bot_token, k_friend_id, c_friend_id, w_friend_id, j_friend_id = actualVars
 
-# request_money("Jordan Mishlove", id, 1.99, "friendship fee")
+  month = get_month(now)
+  venmo = Venmo(access_token)
+  telegram = Telegram(bot_token, chat_id)
+
+  friends =[
+    {
+      "name": "KRam",
+      "id": k_friend_id,
+    },
+    {
+      "name": "Chrissy",
+      "id": c_friend_id,
+    },
+    {
+      "name": "Will",
+      "id": w_friend_id,
+    },
+  ]
+
+  successfulRequests = []
+  expectedRequests = len(friends)
+
+  for friend in friends:
+    name = friend["name"]
+    id = friend["id"]
+    description = "Spotify for the month of " + month + "— Sent by Joe's Assistant Efron 🤵🏻‍♂️"
+    amount = 3.00
+    message = f"""Good news old sport!
+
+I have successfully requested money from {name}.
+
+— Efron 🤵🏻‍♂️
+    """
+    success = venmo.request_money(id, amount, description, telegram.send_message(message))
+    if success:
+      successfulRequests.append(success)
+
+    if len(successfulRequests) == expectedRequests:
+      print("✅ Ran script successfully and sent " + expectedRequests + " Venmo requests.")
+    else:
+      print("❌ Something went wrong. Only sent " + successfulRequests + "/" + str(expectedRequests) + " venmo requests.")
+
+now = datetime.now()
+main(now)
