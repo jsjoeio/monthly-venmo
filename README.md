@@ -2,21 +2,6 @@
 
 ## Local Development
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -146,17 +131,3 @@ Project Link: [https://github.com/jsjoeio/monthly-venmo](https://github.com/jsjo
 - [@mmohades for the Venmo library](https://github.com/mmohades/Venmo)
 - [@liiight for the notifiers library](https://github.com/liiight/notifiers)
 - [@othneildrew for the README template](https://github.com/othneildrew/Best-README-Template)
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/jsjoeio/monthly-venmo.svg?style=for-the-badge
-[contributors-url]: https://github.com/jsjoeio/monthly-venmo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jsjoeio/monthly-venmo.svg?style=for-the-badge
-[forks-url]: https://github.com/jsjoeio/monthly-venmo/network/members
-[stars-shield]: https://img.shields.io/github/stars/jsjoeio/monthly-venmo.svg?style=for-the-badge
-[stars-url]: https://github.com/jsjoeio/monthly-venmo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jsjoeio/monthly-venmo.svg?style=for-the-badge
-[issues-url]: https://github.com/jsjoeio/monthly-venmo/issues
-[license-shield]: https://img.shields.io/github/license/jsjoeio/monthly-venmo.svg?style=for-the-badge
-[license-url]: https://github.com/jsjoeio/monthly-venmo/blob/master/LICENSE.txt
