@@ -15,11 +15,11 @@
     <a href="https://github.com/jsjoeio/monthly-venmo"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/jsjoeio/monthly-venmo">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=cMHORRmHDJs">View Demo</a>
     ·
     <a href="https://github.com/jsjoeio/monthly-venmo/issues">Report Bug</a>
     ·
-    <a href="https://github.com/jsjoeio/monthly-venmo/issues">Request Feature</a>
+    <a href="https://github.com/jsjoeio/monthly-venmo/issues">Ask a Question</a>
   </p>
 </p>
 
