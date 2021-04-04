@@ -57,7 +57,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -125,22 +124,6 @@ pip3 freeze > requirements.txt
 ```
 
 2. delete all the nonesense (aka leave only the actual modules used in the script)
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Run the main script (which sends real Venmo requests) with:
-
-```shell
-python3 init.py
-```
-
-Make sure everything's working by running the health script with:
-
-```
-python3 health.py
-```
 
 <!-- LICENSE -->
 
