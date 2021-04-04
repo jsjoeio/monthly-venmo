@@ -55,7 +55,7 @@ I have successfully requested money from {name}.
       successfulRequests.append(success)
 
     if len(successfulRequests) == expectedRequests:
-      print("✅ Ran script successfully and sent " + expectedRequests + " Venmo requests.")
+      print("✅ Ran script successfully and sent " + str(expectedRequests) + " Venmo requests.")
     else:
       print("❌ Something went wrong. Only sent " + successfulRequests + "/" + str(expectedRequests) + " venmo requests.")
 
