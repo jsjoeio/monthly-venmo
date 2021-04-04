@@ -1,7 +1,5 @@
 # Monthly Venmo
 
-## Local Development
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
