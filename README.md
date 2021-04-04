@@ -6,7 +6,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/jsjoeio/monthly-venmo">
-    <img src="images/logo.png" alt="Logo" width="180" height="180">
+    <img src="images/logo.svg" alt="Logo" width="180" height="180">
   </a>
 
   <h3 align="center">monthly-venmo</h3>
