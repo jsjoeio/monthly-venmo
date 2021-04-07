@@ -54,10 +54,10 @@ I have successfully requested money from {name}.
     if success:
       successfulRequests.append(success)
 
-    if len(successfulRequests) == expectedRequests:
-      print("✅ Ran script successfully and sent " + str(expectedRequests) + " Venmo requests.")
-    else:
-      print("❌ Something went wrong. Only sent " + successfulRequests + "/" + str(expectedRequests) + " venmo requests.")
+  if len(successfulRequests) == expectedRequests:
+    print("✅ Ran script successfully and sent " + str(expectedRequests) + " Venmo requests.")
+  else:
+    print("❌ Something went wrong. Only sent " + str(len(successfulRequests)) + "/" + str(expectedRequests) + " venmo requests.")
 
 now = datetime.now()
 main(now)
