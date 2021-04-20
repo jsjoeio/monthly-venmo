@@ -23,6 +23,9 @@
   </p>
 </p>
 
+[![ui.dev newsletter - your weekly dose of JS](/images/dose-16x1.jpg)](https://bytes.dev/?r=jsjoeio)
+Support the project by signing up for the UI.dev newsletter using [our link](https://bytes.dev/?r=jsjoeio)!
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
