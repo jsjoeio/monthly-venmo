@@ -41,4 +41,3 @@ jobs:
           K_FRIEND_ID: ${{ secrets.K_FRIEND_ID }}
           C_FRIEND_ID: ${{ secrets.C_FRIEND_ID }}
           W_FRIEND_ID: ${{ secrets.W_FRIEND_ID }}
-          J_FRIEND_ID: ${{ secrets.J_FRIEND_ID }}
