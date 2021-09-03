@@ -9,7 +9,7 @@ def main(now):
   print(f'🕘 Monthly health check running on {date} at {time}.\n')
 
   print("🔍 Verifying environment variables...")
-  numOfExpected =  7
+  numOfExpected =  6
   envVarsAreDefined = verify_env_vars(env_vars, numOfExpected)
 
   if envVarsAreDefined:
@@ -43,7 +43,7 @@ You money should be requested per usual this month.
 
 Cheerio!
 
-— Efron 🤵🏻‍♂️
+— Salazar 🤵🏻‍♂️
     """
     telegram.send_message(message)
   elif envVarsAreDefined:
@@ -58,7 +58,7 @@ If I were smarter, I would fix it myself, but you know, I'm just an assistant. T
 
 Good luck fixing it!
 
-— Efron 🤵🏻‍♂️
+— Salazar 🤵🏻‍♂️
     """
     telegram.send_message(message)
   elif returnedUserId:
@@ -73,7 +73,7 @@ You know this stuff is beyond my level of expertise. I'll defer to you, sir.
 
 Good luck!
 
-— Efron 🤵🏻‍♂️
+— Salazar 🤵🏻‍♂️
     """
     telegram.send_message(message)
   else:
@@ -88,7 +88,7 @@ I have no idea what could be wrong. I promise I didn't break it.
 
 You may want to go to GitHub and take a look.
 
-— Efron 🤵🏻‍♂️
+— Salazar 🤵🏻‍♂️
     """
     telegram.send_message(message)
 
