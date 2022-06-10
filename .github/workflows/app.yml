@@ -38,6 +38,8 @@ jobs:
           VENMO_ACCESS_TOKEN: ${{ secrets.VENMO_ACCESS_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          K_FRIEND_ID: ${{ secrets.K_FRIEND_ID }}
-          C_FRIEND_ID: ${{ secrets.C_FRIEND_ID }}
+          L_FRIEND_ID: ${{ secrets.L_FRIEND_ID }}
           W_FRIEND_ID: ${{ secrets.W_FRIEND_ID }}
+          E_FRIEND_ID: ${{ secrets.E_FRIEND_ID }}
+          B_FRIEND_ID: ${{ secrets.B_FRIEND_ID }}
+          EM_FRIEND_ID: ${{ secrets.EM_FRIEND_ID }}
