@@ -15,7 +15,7 @@ def main(now):
   for var in env_vars:
     actualVars.append(get_env(var))
 
-  access_token, chat_id, bot_token, k_friend_id, c_friend_id, w_friend_id = actualVars
+  access_token, chat_id, bot_token, l_friend_id, w_friend_id, e_friend_id, b_friend_id, em_friend_id = actualVars
 
   month = get_month(now)
   venmo = Venmo(access_token)
@@ -24,16 +24,24 @@ def main(now):
   friends =[
     {
       "name": "Leila",
-      "id": k_friend_id,
+      "id": l_friend_id,
     },
     {
       "name": "Winston",
-      "id": c_friend_id,
+      "id": w_friend_id,
     },
     {
       "name": "Elena",
-      "id": w_friend_id,
+      "id": e_friend_id,
     },
+    {
+      "name": "Emma",
+      "id": em_friend_id,
+    },
+    {
+      "name": "Beka",
+      "id": b_friend_id,
+    }
   ]
 
   successfulRequests = []
@@ -43,7 +51,7 @@ def main(now):
     name = friend["name"]
     id = friend["id"]
     description = "Spotify for the month of " + month + "— Sent by Naleo's Assistant Salazar 🤵🏻‍♂️"
-    amount = 3.35
+    amount = 2.79
     message = f"""Good news old sport!
 
 I have successfully requested money from {name}.
