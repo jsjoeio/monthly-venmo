@@ -43,7 +43,7 @@ def main(now):
     name = friend["name"]
     id = friend["id"]
     description = "Spotify for the month of " + month + "— Sent by Joe's Assistant Efron 🤵🏻‍♂️"
-    amount = 4.00
+    amount = 4.40
     message = f"""Good news old sport!
 
 I have successfully requested money from {name}.
